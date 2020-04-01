@@ -3,8 +3,8 @@ package sample.design.a;
 import sample.design.Validator;
 import sample.design.ValidatorDecorator;
 
-public class ValidatorA extends ValidatorDecorator {
-    public ValidatorA(Validator validator) {
+public class AProfileCreateValidator extends ValidatorDecorator {
+    public AProfileCreateValidator(Validator validator) {
         super(validator);
     }
 

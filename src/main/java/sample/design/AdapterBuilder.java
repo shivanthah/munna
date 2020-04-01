@@ -2,36 +2,28 @@ package sample.design;
 
 public class AdapterBuilder {
     Vender vender;
-    Parser parser;
-    Validator validator;
+    ParserFactory parserFactory;
+    ValidatorFactory validatorFactory;
 
-    public AdapterBuilder withVender(Vender vender){
+    public AdapterBuilder withVender(Vender vender) {
         this.vender = vender;
         return this;
     }
 
-    public AdapterBuilder withParser(Parser parser){
-        this.parser = parser;
+    public AdapterBuilder withParserFactory(ParserFactory parserFactory) {
+        this.parserFactory = parserFactory;
         return this;
     }
 
-    public AdapterBuilder withValidator(Validator validator){
-        this.validator = validator;
+    public AdapterBuilder withValidatorFactory(ValidatorFactory validatorFactory) {
+        this.validatorFactory = validatorFactory;
         return this;
     }
-    public Adapter build(){
+
+    public Adapter build() {
         AdapterImpl adapter = new AdapterImpl();
-        if ((parser != null)) {
-            adapter.setParser(parser);
-        } else {
-            adapter.setParser(new DummyParser());
-        }
-        if ((validator != null)) {
-            adapter.setValidator(validator);
-        } else {
-            adapter.setValidator(new DummyValidator());
-        }
-        adapter.setValidator(validator);
+        adapter.setParserFactory(parserFactory);
+        adapter.setValidatorFactory(validatorFactory);
         adapter.setVender(vender);
         return adapter;
     }

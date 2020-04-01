@@ -7,4 +7,5 @@ public interface Adapter {
 
     String createProfile(String name) throws Exception;
 
+    void submitDoc(String doc) throws Exception;
 }
